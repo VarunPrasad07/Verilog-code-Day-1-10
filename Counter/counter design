@@ -1,0 +1,13 @@
+module counter(
+input clk,
+input rst,
+output reg [3:0]q
+);
+always @(clk,rst)
+begin 
+if(rst==0)
+q=0;
+else if(clk==1)
+q=q+1;
+end 
+endmodule
