@@ -1,0 +1,13 @@
+module flipflop(
+input d,
+input clk,rst,
+output reg q
+);
+always@(rst,clk)
+begin
+if(rst==0)
+q=0;
+else 
+q=d;
+end 
+endmodule 
