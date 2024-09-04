@@ -1,0 +1,21 @@
+module flipflop_tb();
+reg d;
+reg clk,rst;
+wire q;
+flipflop DUT(.d(d),.rst(rst),.clk(clk),.q(q));
+initial 
+begin
+clk=0;
+#10;
+forever #10 clk=~clk;
+end
+initial 
+begin
+d=1;
+rst=0;
+#10;
+rst=1;
+#100;
+$finish;
+end 
+endmodule 
