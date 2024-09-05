@@ -1,0 +1,14 @@
+module ripple_tb();
+reg [3:0]a,b;
+reg c;
+wire [3:0]s;
+wire cout;
+ripple1 add(.a(a),.b(b),.c(c),.s(s),.cout(cout));
+initial 
+begin 
+a=4'b0001;
+b=4'b1000;
+c=1;
+#100;
+end 
+endmodule 
