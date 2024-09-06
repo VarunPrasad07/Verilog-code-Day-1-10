@@ -1,0 +1,28 @@
+module jk_tb();
+reg clk,rst;
+reg j,k;
+wire q;
+wire qb;
+jk DUT(.j(j),.k(k),.rst(rst),.clk(clk),.q(q),.qb(qb));
+initial 
+begin
+rst=0;
+#10;
+rst=1;
+end
+initial 
+begin
+clk=0;
+#10;
+forever #10 clk=~clk;
+end 
+initial
+begin
+j=0;k=0;
+#10;
+j=0;k=1;#10;
+j=1;k=0;#10;
+j=1;k=1;#10;
+$finish;
+end 
+endmodule 
