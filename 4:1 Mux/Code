@@ -1,0 +1,13 @@
+module mulx(input [3:0]a, 
+input [1:0]sel, 
+output reg y);
+always@(a,sel)
+begin
+case(sel) 
+    2'd0:y=a[3]; 
+	2'd1:y=a[2]; 
+	2'd2:y=a[1]; 
+	2'd3:y=a[0];
+endcase
+end
+endmodule
