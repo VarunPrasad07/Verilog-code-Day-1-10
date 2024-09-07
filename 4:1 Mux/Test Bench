@@ -1,0 +1,49 @@
+module mulx_tb;	
+	reg [3:0] a;
+	reg [1:0] sel;
+	wire y;
+	integer i,j;
+	
+	mulx uut (
+		.a(a), 
+		.sel(sel), 
+		.y(y)
+	);
+
+	task initialize;
+	begin
+	a=4'b0;
+	sel=2'b0;
+	end
+	endtask
+	
+	task data_in(input [3:0]data);
+	  begin
+	  a=data;
+	  end
+	  endtask
+	  task select_in(input [1:0]select);
+	  begin
+	  sel=select;
+	  end
+	  endtask
+	  
+	  
+	  initial 
+	  begin
+	  initialize;
+	  for(i=0;i<16;i=i+1)
+	  begin
+	  data_in(i);
+	  for(j=0;j<4;j=j+1)
+	  begin
+	  select_in(i);
+	  #10;
+		  end 
+		  	   
+end
+$finish;
+end
+initial
+$monitor("Data_in=%b, Output=%b",a,y);
+endmodule
