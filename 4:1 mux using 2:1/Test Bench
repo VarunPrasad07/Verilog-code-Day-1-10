@@ -1,0 +1,14 @@
+module mux2_tb();
+    reg [3:0]i;
+    reg [1:0]s;
+    wire y;
+    
+    mux4 m4(.i(i),.s0(s[0]),.s1(s[1]),.y(y));
+    
+    initial 
+    begin
+    i=4'b0001;
+    s[0]=0;
+    s[1]=1;
+    end
+endmodule
