@@ -1,0 +1,23 @@
+module mux2(
+input i0,i1,
+input s,
+output reg out 
+);
+always @(i1,i0,s)
+begin 
+if(s==0)
+out =i0;
+else 
+out =i1;
+end 
+endmodule 
+module mux4(
+input [3:0]i,
+input s0,s1,
+output y
+);
+wire y1,y2;
+mux2 m1(.i0(i[0]),.i1(i[1]),.s(s0),.out(y1));
+mux2 m2(.i0(i[2]),.i1(i[3]),.s(s0),.out(y2));
+mux2 m3(.i0(y1),.i1(y2),.s(s1),.out(y));
+endmodule
