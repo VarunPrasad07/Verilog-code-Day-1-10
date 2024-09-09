@@ -1,0 +1,7 @@
+module sr(
+input s,r,
+inout q,qb
+);
+nand (q,s,qb);
+nand (qb,q,r);
+endmodule 
