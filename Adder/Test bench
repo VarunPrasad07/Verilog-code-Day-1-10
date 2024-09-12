@@ -1,0 +1,23 @@
+module adder_tb();
+reg a,b,c;
+wire sum,carry;
+integer i;
+adder DUT(.a(a),.b(b),.c(c),.sum(sum),.carry(carry));
+initial 
+begin
+a=0;
+b=0;
+c=0;
+end 
+initial 
+begin
+for(i=0;i<8;i=i+1)
+begin 
+{a,b,c}=i;
+#10;
+end 
+end 
+initial $monitor("sum=%b caary=%b",sum,carry);
+initial #100
+$finish;
+endmodule
